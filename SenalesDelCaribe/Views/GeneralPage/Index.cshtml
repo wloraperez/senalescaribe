@@ -1,0 +1,101 @@
+﻿@using DataSenalesCaribe
+@model DataSenalesCaribe.Content
+@{
+    ViewBag.Title = Model != null ? Model.Title : string.Empty;
+    var tmpCategoryId = ViewBag.CategoryId;
+    int? tmpPhotoId = ViewBag.PhotoId;
+    bool? tmpSlide = ViewBag.Slide;
+    Comun.Enums.CategoryType tmpCategoryType = ViewBag.CategoryType;
+    
+}
+
+@if (Model != null)
+{
+    switch (tmpCategoryType)
+    {
+        case Comun.Enums.CategoryType.contacto:
+            { Html.RenderAction("ContactPage", "GeneralPage", new { vContentId = @Model.IDContent }); }
+            break;
+        case Comun.Enums.CategoryType.fotosUp:
+            {
+                //Slide de fotos
+                if (tmpSlide != null && tmpSlide == true)
+                {
+                    <div>   
+                        @{ Html.RenderAction("SlideContainer", "GeneralPage", new { vContentId = @Model.IDContent });}
+                    </div>
+                    <br />
+                }
+                
+                //Titulo
+                <h2>@Model.Title</h2>
+                <br />
+    
+                //Foto principal
+                if (tmpPhotoId != null && tmpPhotoId > 0)
+                {
+                    <img alt=""  id="imgPhoto"  width="820" height="250" src="@Url.Action("GetPhoto", "GeneralPage", new { id = tmpPhotoId })" />
+                    <br />
+                }
+
+                //Contenido
+                @Model.HTMLContent
+                <br />                
+            }
+            break;
+        case Comun.Enums.CategoryType.link:
+            {
+
+            }
+            break;
+        case Comun.Enums.CategoryType.texto:
+            {
+                //Titulo
+                <h2>@Model.Title</h2>
+                <br />
+    
+                //Contenido
+                @Model.HTMLContent
+               <br />
+            }
+            break;
+        case Comun.Enums.CategoryType.videos:
+            break;
+
+        case Comun.Enums.CategoryType.fotosDown:
+            {
+                //Titulo
+                <h2>@Model.Title</h2>
+                <br />
+    
+                //Foto principal
+                if (tmpPhotoId != null && tmpPhotoId > 0)
+                {
+                    <img alt=""  id="imgPhoto"  width="820" height="250" src="@Url.Action("GetPhoto", "GeneralPage", new { id = tmpPhotoId })" />
+                    <br />
+                }
+
+                //Contenido
+                @Model.HTMLContent
+                <br />
+    
+                //Slide de fotos
+                if (tmpSlide != null && tmpSlide == true)
+                {
+                    <div>   
+                        @{ Html.RenderAction("SlideContainer", "GeneralPage", new { vContentId = @Model.IDContent });}
+                    </div>
+                    <br />
+                }
+            }
+            break;
+        default:
+            <text>Error al buscar el tipo de categoría.</text>
+            break;
+    }
+}
+else
+{
+    <text>La categoría no tiene un contenido determinado.</text>
+}
+

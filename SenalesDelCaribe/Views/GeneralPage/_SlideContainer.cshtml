@@ -1,0 +1,24 @@
+﻿@model List<SenalesDelCaribe.Models.CPhoto>
+
+<div id="container">
+    <div id="example">
+        <div id="slides">
+            <div class="slides_container">
+                @foreach (var item in Model)
+                {
+                    <div class="slide">
+                        <img src="@Url.Action("GetPhoto", "GeneralPage", new { id = item.IDPhoto })" width="570" height="270" alt="Slide 1">
+                        <div class="caption" style="bottom: 0">
+                            <p> @item.Description</p>
+                        </div>
+                    </div>
+                }
+            </div>
+            <a href="#" class="prev">
+                <img src="@Url.Content("~/Content/Images/arrow-prev.png")" width="24" height="43" alt="Arrow Prev"></a>
+            <a href="#" class="next">
+                <img src="@Url.Content("~/Content/Images/arrow-next.png")" width="24" height="43" alt="Arrow Next"></a>
+        </div>
+        <img src="@Url.Content("~/Content/Images/example-frame.png")" width="739" height="341" alt="Example Frame" id="frame">
+    </div>
+</div>

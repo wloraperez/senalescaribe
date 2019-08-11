@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WR_SenalesCaribe" Class="ContentDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=WILMER-PC\SQLEXPRESS;Initial Catalog=WR_SenalesCaribe;User ID=wr_senales" SettingsObjectName="DataSenalesCaribe.My.MySettings" SettingsPropertyName="WR_SenalesCaribeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Photo" Member="Photos">
+    <Type Name="Photo">
+      <Column Name="IDPhoto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ContentType" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ContentLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhotoSmall" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PhotoSmallName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PhotoLarge" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PhotoLargeName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Create_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Update_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Photo_ContentPhoto" Member="ContentPhotos" ThisKey="IDPhoto" OtherKey="IDPhoto" Type="ContentPhoto" />
+      <Association Name="Photo_Category" Member="Categories" ThisKey="IDPhoto" OtherKey="IDPhoto" Type="Category" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContentPhoto" Member="ContentPhotos">
+    <Type Name="ContentPhoto">
+      <Column Name="IDContent" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDPhoto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Create_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Update_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Photo_ContentPhoto" Member="Photo" ThisKey="IDPhoto" OtherKey="IDPhoto" Type="Photo" IsForeignKey="true" />
+      <Association Name="Content_ContentPhoto" Member="Content" ThisKey="IDContent" OtherKey="IDContent" Type="Content" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Content_Category" Member="Content_Categories">
+    <Type Name="Content_Category">
+      <Column Name="IDContent" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDCategory" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Create_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Update_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Category_Content_Category" Member="Category" ThisKey="IDCategory" OtherKey="IDCategory" Type="Category" IsForeignKey="true" />
+      <Association Name="Content_Content_Category" Member="Content" ThisKey="IDContent" OtherKey="IDContent" Type="Content" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="IDCategory" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDParent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pCategoryType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CatName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CatDescription" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="CatURL" Type="System.String" DbType="VarChar(240)" CanBeNull="true" />
+      <Column Name="IsMenu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Create_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Update_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IDPhoto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Category_Content_Category" Member="Content_Categories" ThisKey="IDCategory" OtherKey="IDCategory" Type="Content_Category" />
+      <Association Name="Photo_Category" Member="Photo" ThisKey="IDPhoto" OtherKey="IDPhoto" Type="Photo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Content" Member="Contents">
+    <Type Name="Content">
+      <Column Name="IDContent" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="HTMLContent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expired_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsPublished" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Create_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Update_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Content_ContentPhoto" Member="ContentPhotos" ThisKey="IDContent" OtherKey="IDContent" Type="ContentPhoto" />
+      <Association Name="Content_Content_Category" Member="Content_Categories" ThisKey="IDContent" OtherKey="IDContent" Type="Content_Category" />
+    </Type>
+  </Table>
+</Database>

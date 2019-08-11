@@ -1,0 +1,403 @@
+/*----------------------------------------------------------
+CSS Básico para página de Señales del Caribe
+Colores básicos: 
+----------------------------------------------------------*/
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+body {
+	margin: 0;
+	padding: 0;
+	background: #CAA765 url(Images/page-wrapper-bg.png) repeat;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+}
+
+h1, h2, h3 {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Abel', sans-serif;
+	font-weight: 300;
+}
+
+h1 {
+	font-size: 2.4em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+p, ul, ol {
+	margin-top: 0;
+	line-height: 180%;
+}
+
+ul, ol {
+}
+
+a {
+	text-decoration: none;
+	color: #2E2E2E;
+}
+
+a:hover {
+}
+
+img.border {
+	border: 6px solid #E1F1F6;
+}
+
+img.alignleft {
+	float: left;
+	margin-right: 25px;
+}
+
+img.alignright {
+	float: right;
+}
+
+img.aligncenter {
+	margin: 0px auto;
+}
+
+#wrapper {
+	margin: 0 auto;
+	padding: 0;
+}
+
+/* Header */
+
+#header-wrapper {
+	height: 200px;
+	background: #F5DA81;
+	margin-bottom: 30px;
+}
+
+#header {
+	width: 960px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+/* Logo */
+
+#logo {
+	float: left;
+	margin: 0;
+	padding: 10px 0px 0px 0px;
+	text-align: center;
+	color: #FF0000;
+}
+
+/* Menu */
+
+#menu-wrapper {
+	border-radius: 20px 20px 0px 0px;
+	width: 820px;
+	height: 60px;
+	margin: 0 auto;
+	padding: 0px 40px;
+	background: url(Images/footer-shadow-bg.png) repeat;
+	text-shadow: 2px 2px 2px rgba(0,0,0,.3);
+	box-shadow: 2px 2px 20px rgba(0,0,0,.3);
+	border: none;
+	font-size: 16px;
+}
+
+#menu ul{
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+	border: none;
+}
+
+#menu li {
+	float: left;
+	border: none;
+}
+
+#menu a {	
+	display: block;
+	height: 40px;
+	margin-right: 1px;
+	padding: 20px 0px 0px 0px;
+	text-decoration: none;
+	font-family: 'Abel', sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	color: #FFFFFF;
+	border: none;
+}
+
+#menu .current_page_item a {
+	text-shadow: 2px 2px 2px rgba(0,0,0,.3);
+	background: #3B1C11;
+}
+
+#menu a:hover {
+	background: #3B1C11;
+	text-decoration: none;
+	text-shadow: 2px 2px 2px rgba(0,0,0,.3);
+	background: #3B1C11;
+}
+
+#menu span {
+	padding: 0px 10px;
+}
+
+#menu > li {
+}
+
+#menu > li.active {
+	background: #3B1C11;
+	color: #FFFFFF;
+}
+
+.dropotron li.opener {
+	border-right: solid 2px #FFFFFF;
+}
+
+.dropotron {
+	margin: 0px;
+	padding: 10px 0px;
+	background: #3B1C11;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Abel', sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+.dropotron a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.dropotron li {
+	margin: 0px;
+	padding: 5px 20px;
+}
+
+.dropotron li:hover, .dropotron li.active {
+	background: #FF8000;
+}
+
+/* Page */
+
+#page {
+	overflow: hidden;
+	width: 820px;
+	margin: 0px auto;
+	padding: 40px 40px;
+	background: #FFFFFF url(Images/page-gradient-bg.png) repeat-x left bottom;
+	/*box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 1);*/
+	box-shadow: 2px 2px 20px rgba(0,0,0,.3);
+}
+
+/* PIC */
+
+/* Content */
+
+#content {
+	float: left;
+	width: 520px;
+	padding: 0px 20px;
+}
+
+.post {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #BDBDBD;
+}
+
+.post .title {
+	padding-bottom: 20px;
+	letter-spacing: -1px;
+	color: #A26500;
+}
+
+.post .title a {
+	border: none;
+	color: #A26500;
+}
+
+.post .meta {
+	padding-bottom: 5px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: italic;
+}
+
+.post .meta a {
+}
+
+.post .entry {
+	text-align: justify;
+	margin-bottom: 25px;
+	padding: 10px 0px 0px 0px;
+}
+
+.links {
+	display: block;
+	width: 96px;
+	padding: 2px 0px 2px 0px;
+	background: #A53602;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 10px;
+	color: #FFFFFF;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 330px;
+	padding: 0px 0px 0px 0px;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar li ul {
+	margin: 0px 15px;
+	padding-bottom: 30px;
+}
+
+#sidebar li li {
+	padding-left: 15px;
+	line-height: 35px;
+	background: url(Images/img07.jpg) no-repeat left 14px;
+	border-bottom: 1px solid #EFF4F5;
+}
+
+#sidebar li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}
+
+#sidebar h2 {
+	height: 38px;
+	padding: 12px 0 0 15px;
+	letter-spacing: -1px;
+	color: #95C500;
+}
+
+#sidebar p {
+	margin: 0 0px;
+	padding: 0px 20px 20px 20px;
+	text-align: justify;
+}
+
+#sidebar a {
+	border: none;
+	color: #7F7F81;
+}
+
+#sidebar a:hover {
+	text-decoration: underline;
+	color: #95C500;
+}
+
+/* FOOTER   
+----------------------------------------------------------*/
+
+#footer {
+	border-radius: 0px 0px 20px 20px;
+	box-shadow: 2px 2px 20px rgba(0,0,0,.3);
+	width: 900px;
+	height: 60px;
+	margin: 0px auto 30px auto;
+	background: url(Images/footer-shadow-bg.png) repeat;
+}
+
+#footer p {
+	margin: 0;
+	padding-top: 30px;
+	line-height: normal;
+	text-align: center;
+	text-shadow: 1px 2px 0px #D9B46F;
+	font-family: 'Abel', sans-serif;
+	font-size: 16px;
+	color: #3B1C11;
+}
+
+#footer a {
+	text-decoration: underline;
+	color: #3B1C11;
+}
+
+#about {
+	overflow: hidden;
+	width: 820px;
+	margin: 0px auto;
+	padding: 40px 40px;
+	background: #FFFFFF url(Images/page-gradient-bg.png) repeat-x left bottom;
+	box-shadow: 2px 2px 20px rgba(0,0,0,.3);
+}
+
+#about .title {
+	padding-bottom: 10px;
+	letter-spacing: -1px;
+	color: #A26500;
+}
+
+#two-column {
+	padding-top: 30px;
+}
+
+#two-column h2 {
+	padding-bottom: 20px;
+	letter-spacing: -1px;
+	font-size: 30px;
+	color: #A26500;
+}
+
+#two-column #column1 {
+	float: left;
+	width: 390px;
+}
+
+#two-column #column2 {
+	float: right;
+	width: 390px; 
+}
+
+.list-style1 {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.list-style1 li {
+	padding: 5px 0px;
+	border-top: 1px solid #EEEEEE;
+}
+
+.list-style1 a:hover {
+	text-decoration: underline;
+}
+
+.list-style1 .first {
+	border-top: none;
+}

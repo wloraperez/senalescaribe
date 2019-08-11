@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WR_SenalesCaribe" Class="SecurityDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=WILMER-PC\SQLEXPRESS;Initial Catalog=WR_SenalesCaribe;User ID=wr_senales" SettingsObjectName="DataSenalesCaribe.My.MySettings" SettingsPropertyName="WR_SenalesCaribeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserPass" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="UserEmail" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="IsLocked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastLogin_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NextDatePassword_Change" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Intentos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Expired_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Create_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Update_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Parametros" Member="Parametros">
+    <Type Name="Parametro">
+      <Column Name="IDParametro" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="IDGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDParent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomString" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CustomInt1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomInt2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Create_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_User" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cliente" Member="Clientes">
+    <Type Name="Cliente">
+      <Column Name="IDCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pTipo_Cliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Celular" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Correo_Electronico" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Fecha_Nacimiento" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="pSexo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pEstadoCivil" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Create_User" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Create_Date" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_User" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

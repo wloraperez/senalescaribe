@@ -1,0 +1,122 @@
+﻿@using Telerik.Web.Mvc;
+@using SenalesDelCaribe.Models;
+@(Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.sunset.css")))
+@(Html.Telerik().ScriptRegistrar().DefaultGroup(group => group
+                         .Add("telerik.all.min.js")
+                             .Add("telerik.menu.min.js")
+                          .Add("jquery.validate.min.js")
+                         .Compress(true))
+)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Slide.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- HEADER -->
+        <div id="header-wrapper">
+            <div id="header">
+                <div id="logo">
+                    <p>
+                        <img src="@Url.Content("~/Content/Images/logo-03.png")" height="80%" alt="" /></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU -->
+        <div id="menu-wrapper">
+            @Html.CreateMenu()
+            @*<ul id="menu">
+                <li class="current_page_item"><a href="#"><span>Inicio</span></a></li>
+                <li><a href="#"><span>Proyectos</span></a>
+                    <ul>
+                        <li class="first"><a href="index">Maecenas luctus lectus</a> </li>
+                        <li><a href="search">Integer gravida</a> </li>
+                        <li class="last"><a href="about">Ut nonummy rutrum</a> </li>
+                    </ul>
+                </li>
+                <li><a href="#"><span>Fotos</span></a></li>
+                <li><a href="#"><span>Cotizaciones</span></a>
+                    <ul>
+                        <li><a href="index">Maecenas luctus lectus</a> </li>
+                        <li><a href="search">Integer gravida</a> </li>
+                        <li><a href="about">Ut nonummy rutrum</a> </li>
+                    </ul>
+                </li>
+                <li><a href="#"><span>Nosotros</span></a></li>
+            </ul>*@
+        </div>
+
+        <!-- BODY -->
+        <div id="page">
+            <div class="post">
+                <div id="body">
+                    @RenderBody()
+                </div>
+            </div>
+            <div id="two-column">
+                @{Html.RenderAction("TwoColumnMenu", "Home");}
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div id="about">
+            @{Html.RenderAction("About", "Home");}
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <div id="footer">
+        <p>
+            &copy; 2013 Se&ntilde;ales del Caribe. Todos los derechos reservados. Desarrollado
+            por W&R Solutions</p>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/Scripts/slides.min.jquery.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.dropotron-1.0.js"></script>
+<script type="text/javascript">
+    $('#menu').dropotron();
+
+    $(function () {
+        $('#slides').slides({
+            preload: true,
+            preloadImage: '/Content/Images/loading.gif',
+            play: 5000,
+            pause: 2500,
+            hoverPause: true,
+            animationStart: function (current) {
+                $('.caption').animate({
+                    bottom: -35
+                }, 100);
+                if (window.console && console.log) {
+                    // example return of current slide number
+                    console.log('animationStart on slide: ', current);
+                };
+            },
+            animationComplete: function (current) {
+                $('.caption').animate({
+                    bottom: 0
+                }, 200);
+                if (window.console && console.log) {
+                    // example return of current slide number
+                    console.log('animationComplete on slide: ', current);
+                };
+            },
+            slidesLoaded: function () {
+                $('.caption').animate({
+                    bottom: 0
+                }, 200);
+            }
+        });
+    });
+</script>
